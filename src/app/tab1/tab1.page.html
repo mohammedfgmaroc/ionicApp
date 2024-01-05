@@ -1,17 +1,41 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
+  <ion-toolbar color="primary">
+    <ion-title class="header-title">
+      Popular Cities<br>of Morocco
     </ion-title>
+    <ion-buttons slot="end" class="add-button-container">
+      <ion-button (click)="goToCityForm()" class="add-button">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content class="content-wrapper">
+  <ion-list class="city-list">
+    <!-- Add the ngFor loop for city items -->
+    <ion-item *ngFor="let city of popularCities" class="city-item">
+      <!-- First two-thirds for navigating to Tab2 -->
+      <div (click)="goToCityDetails(city.id)" class="city-details">
+        <ion-thumbnail slot="start">
+          <ion-img [src]="city.photo1" class="city-thumbnail"></ion-img>
+        </ion-thumbnail>
+        <ion-label class="city-label">
+          <h2 class="city-name">{{ city.name }}</h2>
+        </ion-label>
+      </div>
+    
+      <!-- Last third for editing/deleting -->
+      <div class="city-actions">
+        <ion-buttons slot="end">
+          <ion-button (click)="editCity(city.id)">
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+          <ion-button (click)="deleteCity(city.id)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Sign In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <ion-item lines="none">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [formControl]="loginForm.get('email')" type="text"></ion-input>
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+    </ion-item>
+    <div class="error-message" *ngIf="loginForm.get('email').hasError('email') && loginForm.get('email').touched">
+      Please enter a valid email address.
+    </div>
+
+    <ion-item lines="none">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [formControl]="loginForm.get('password')" type="password"></ion-input>
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+    </ion-item>
+    <div class="error-message" *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').touched">
+      Password must be at least 6 characters long.
+    </div>
+
+    <ion-button expand="full" color="primary" shape="round" (click)="login()" [disabled]="loginForm.invalid">
+      <ion-icon name="log-in-outline" slot="start"></ion-icon>
+      Login
+    </ion-button>
+    
+    <ion-button expand="full" color="medium" shape="round" (click)="goToRegister()">
+      <ion-icon name="person-add-outline" slot="start"></ion-icon>
+      Create an Account
+    </ion-button>
+  </div>
+</ion-content>

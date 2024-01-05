@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ cityId ? 'Edit City' : 'Add City' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="cityForm" (ngSubmit)="onSubmit()">
+
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input formControlName="name" placeholder="Enter city name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Province</ion-label>
+      <ion-input formControlName="province" placeholder="Enter province"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Photo 1 URL</ion-label>
+      <ion-input formControlName="photo1" placeholder="Enter photo 1 URL"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Photo 2 URL</ion-label>
+      <ion-input formControlName="photo2" placeholder="Enter photo 2 URL"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Latitude</ion-label>
+      <ion-input formControlName="lat" type="number" placeholder="Enter latitude"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Longitude</ion-label>
+      <ion-input formControlName="lng" type="number" placeholder="Enter longitude"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Description</ion-label>
+      <ion-textarea formControlName="description" placeholder="Enter description"></ion-textarea>
+    </ion-item>
+
+    <ion-button type="submit" expand="full" color="primary">
+      {{ cityId ? 'Update' : 'Create' }} City
+    </ion-button>
+
+  </form>
+</ion-content>

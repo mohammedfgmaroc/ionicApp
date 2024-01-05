@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar class="header1Color">
+    <ion-title>
+      Sign Up
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="register-container">
+    <ion-item lines="none">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [formControl]="registerForm.get('email')" type="text"></ion-input>
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+    </ion-item>
+    <div class="error-message" *ngIf="registerForm.get('email').hasError('email') && registerForm.get('email').touched">
+      Please enter a valid email address.
+    </div>
+
+    <ion-item lines="none">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [formControl]="registerForm.get('password')" type="password"></ion-input>
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+    </ion-item>
+    <div class="error-message" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched">
+      Password must be at least 6 characters long.
+    </div>
+
+    <ion-button expand="full" color="primary" shape="round" (click)="register()" [disabled]="registerForm.invalid">
+      <ion-icon name="person-add-outline" slot="start"></ion-icon>
+      Register
+    </ion-button>
+    <div class="login-link">
+      Already a member ? <a routerLink="/login">Sign in</a>
+    </div>
+  </div>
+</ion-content>

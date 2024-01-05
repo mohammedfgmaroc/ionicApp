@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "maroc-46f9c": {
+      "hosting": {
+        "app": [
+          "maroc-46f9c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "maroc-46f9c"
+  }
+}

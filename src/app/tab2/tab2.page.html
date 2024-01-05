@@ -1,17 +1,32 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">
+      {{ cityDetails?.name }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="content-wrapper">
+  <ion-card class="city-card">
+    <ion-card-header class="city-card-header">
+      City Details
+    </ion-card-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <ion-card-content class="city-card-content">
+      <ion-img [src]="cityDetails?.photo1" class="city-photo"></ion-img>
+
+      <div class="image-separator"></div>
+
+      <ion-img [src]="cityDetails?.photo2" class="city-photo"></ion-img>
+      <p class="city-description">{{ cityDetails?.description }}</p>
+
+      <ion-button expand="full" shape="round" (click)="showOnMap()" class="map-button">
+        <ion-icon name="location-outline" slot="start"></ion-icon>
+        Show in Map
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

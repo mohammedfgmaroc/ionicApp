@@ -1,0 +1,95 @@
+ion-header {
+  --background: linear-gradient(to right, #3498db, #2c3e50);
+  color: #fff;
+
+  ion-toolbar {
+    --min-height: 60px;
+  }
+  .add-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .add-button {
+    --background: #12181d; /* Set the background color for the button */
+    --color: #fff; /* Set the text color for the button */
+    margin-right: 8px; /* Add some right margin for spacing */
+  }
+  
+  .add-button:hover {
+    --background: #2980b9; /* Change background color on hover if desired */
+  }
+}
+
+// Content Wrapper Styles
+.content-wrapper {
+  ion-padding {
+    padding: 20px;
+  }
+}
+
+// Header Title Styles
+.header-title {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+// City List Styles
+.city-list {
+  ion-item {
+    --ion-item-background: #b7eaf7;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 5px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex; // Ensure items are displayed as flex containers
+
+    .city-thumbnail {
+      border-radius: 10px 0 0 10px;
+      max-width: 100px;
+      max-height: 80px;
+    }
+    .city-details{
+      max-width: 150px;
+      max-height: 80px;
+    }
+
+    .city-label {
+      flex: 2; // Occupy two-thirds of the available space
+      padding: 10px;
+
+      // City Name Styles
+      .city-name {
+        font-size: 1em;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #000000;
+      }
+    }
+
+    // City Actions Styles
+    .city-actions {
+      flex: 1; // Occupy one-third of the available space
+      display: flex;
+      align-items: 10;
+      justify-content: flex-end; // Align icons to the end of the item
+
+      ion-buttons {
+        // Edit Icons Container Styles
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 0 10px 10px 0;
+
+        // Edit Button Styles
+        ion-button {
+          --ion-color: #3498db;
+        }
+      }
+    }
+  }
+}
